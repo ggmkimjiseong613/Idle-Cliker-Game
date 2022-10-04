@@ -30,4 +30,8 @@ public class ShaftUI : MonoBehaviour
         _shaft.ShaftID = ID;
         shaftID.text = (ID + 1).ToString();
     }
+    public void SetNewShaftCost(float newCost)
+    {
+        newShaftCost.text = newCost.ToString();
+    }
 }

@@ -12,13 +12,6 @@ public class ShaftMiner : BaseMiner
     private int walkAnimation = Animator.StringToHash("Walk");
     private int miningAnimation = Animator.StringToHash("Mining");
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            MoveMiner(MiningLocation);
-        }
-    }
     protected override void MoveMiner(Vector3 newPosition)
     {
         base.MoveMiner(newPosition);
@@ -46,5 +39,9 @@ public class ShaftMiner : BaseMiner
         ChangeGoal();
         RotateMiner(-1);
         MoveMiner(DepositLocation);
+    }
+    public override void OnClick()
+    {
+        MoveMiner(MiningLocation);
     }
 }

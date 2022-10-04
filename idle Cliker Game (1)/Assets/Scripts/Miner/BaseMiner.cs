@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-public class BaseMiner : MonoBehaviour
+public class BaseMiner : MonoBehaviour,ICLickable
 {
     [Header("Initial Values")]
     [SerializeField] private float initialCollectCapacity;
@@ -12,6 +12,7 @@ public class BaseMiner : MonoBehaviour
     public float CollectCapacity { get; set; }
     public float CollectPerSecond { get; set; }
     public bool isTimeToCollect { get; set; }
+    public bool MinerCliked { get; set; }
     SpriteRenderer spriteRenderer;
     protected Animator _animator;
 
@@ -24,6 +25,15 @@ public class BaseMiner : MonoBehaviour
 
         CollectCapacity = initialCollectCapacity;
         CollectPerSecond = initialCollectPerSecond;
+    }
+
+    private void OnMouseDown()
+    {
+        if (!MinerCliked)
+        {
+            OnClick();
+            MinerCliked = true;
+        }
     }
     protected virtual void MoveMiner(Vector3 newPosition)
     {
@@ -68,5 +78,10 @@ public class BaseMiner : MonoBehaviour
     {
         
         yield return null;
+    }
+
+    public virtual void OnClick()
+    {
+        
     }
 }
