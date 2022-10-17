@@ -1482,8 +1482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bf009ed7125a1442a8b050b334c8e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialCollectCapacity: 0
-  initialCollectPerSecond: 0
+  initialCollectCapacity: 1000
+  initialCollectPerSecond: 200
   moveSpeed: 2
   elevator: {fileID: 715618806}
 --- !u!1 &1912059469
@@ -1687,7 +1687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6828052861168311042, guid: 441214be2285efc4c903cf3a1c7759ca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.04
+      value: -2.47
       objectReference: {fileID: 0}
     - target: {fileID: 6828052861168311042, guid: 441214be2285efc4c903cf3a1c7759ca, type: 3}
       propertyPath: m_LocalPosition.z
