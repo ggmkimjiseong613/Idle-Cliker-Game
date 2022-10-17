@@ -28,4 +28,12 @@ public class ElevatorMiner : BaseMiner
             _currentShaftIndex = -1;
         }
     }
+    protected override void DepositGold()
+    {
+        if(CurrentGold <= 0)
+        {
+            ChangeGoal();
+            MoveTONextLocation();
+        }
+    }
 }
