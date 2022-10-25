@@ -84,4 +84,8 @@ public class BaseMiner : MonoBehaviour,ICLickable
     {
         
     }
+    protected virtual IEnumerator IEDeposit(float depositTime)
+    {
+        yield return null;
+    }
 }

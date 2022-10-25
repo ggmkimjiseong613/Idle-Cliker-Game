@@ -734,6 +734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   depositLocation: {fileID: 995831926}
+  elevatorDeposit: {fileID: 448350125}
 --- !u!1 &949599397
 GameObject:
   m_ObjectHideFlags: 0

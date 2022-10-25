@@ -40,7 +40,21 @@ public class ElevatorMiner : BaseMiner
         {
             ChangeGoal();
             MoveTONextLocation();
+            return;
         }
+
+        float depositTime = CurrentGold / CollectPerSecond;
+        StartCoroutine(IEDeposit(depositTime));
+    }
+    protected override IEnumerator IEDeposit(float depositTime)
+    {
+        yield return new WaitForSeconds(depositTime);
+
+        elevator.ElevatorDeposit.DepositGold(CurrentGold);
+        CurrentGold = 0;
+
+        ChangeGoal();
+        MoveTONextLocation();
     }
     protected override IEnumerator IECollect(float gold, float collectTime)
     {
