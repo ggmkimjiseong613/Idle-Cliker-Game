@@ -179,8 +179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c031d2a2d6812ac44a5a6af65f7477fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialCollectCapacity: 0
-  initialCollectPerSecond: 0
+  initialCollectCapacity: 1000
+  initialCollectPerSecond: 200
   moveSpeed: 2
 --- !u!61 &1311016681989129274
 BoxCollider2D:
