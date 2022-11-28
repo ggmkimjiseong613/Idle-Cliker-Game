@@ -13,6 +13,8 @@ public class BaseMiner : MonoBehaviour,ICLickable
     public float CollectPerSecond { get; set; }
     public bool isTimeToCollect { get; set; }
     public bool MinerCliked { get; set; }
+    public float MoveSpeed { get; set; }
+
     SpriteRenderer spriteRenderer;
     protected Animator _animator;
 
@@ -25,6 +27,8 @@ public class BaseMiner : MonoBehaviour,ICLickable
 
         CollectCapacity = initialCollectCapacity;
         CollectPerSecond = initialCollectPerSecond;
+
+        MoveSpeed = moveSpeed;
     }
 
     private void OnMouseDown()
@@ -37,7 +41,7 @@ public class BaseMiner : MonoBehaviour,ICLickable
     }
     protected virtual void MoveMiner(Vector3 newPosition)
     {
-        transform.DOMove(newPosition, moveSpeed).SetEase(Ease.Linear).OnComplete((()=> 
+        transform.DOMove(newPosition, MoveSpeed).SetEase(Ease.Linear).OnComplete((()=> 
         {
             if(isTimeToCollect)
             {

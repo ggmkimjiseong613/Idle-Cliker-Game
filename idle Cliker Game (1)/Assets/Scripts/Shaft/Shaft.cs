@@ -18,6 +18,9 @@ public class Shaft : MonoBehaviour
     public Transform DepositLocation => depositLocation;
     public Deposit ShaftDeposit { get; set; }
     public ShaftUI ShaftUI { get; set; }
+
+    private List<ShaftMiner> _miners = new List<ShaftMiner>();
+    public List<ShaftMiner> Miners => _miners;
     private void Awake()
     {
         ShaftUI = GetComponent<ShaftUI>();
@@ -32,6 +35,7 @@ public class Shaft : MonoBehaviour
        ShaftMiner newMiner = Instantiate(minerPrefab, depositLocation.position, Quaternion.identity);
         newMiner.CurrentShaft = this;
         newMiner.transform.SetParent(transform);
+        _miners.Add(newMiner);
     }
     private void CreateDeposit()
     {
