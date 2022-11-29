@@ -19,15 +19,33 @@ public class BaseUpgrade : MonoBehaviour
     public float CollectPerSecondMultiplier => collectPerSecondMultiplier;
     public float MoveSpeedMultiplier => moveSpeedMultiplier;
 
+    protected Shaft _shaft;
     void Start()
     {
+        _shaft = GetComponent<Shaft>();
+
         CurrentLevel = 1;
         UpgradeCost = initialUpgradeCost;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Upgrade(int amount)
     {
-        
+        if(amount > 0)
+        {
+            for(int i = 0; i<amount; i++)
+            {
+                UpgradeCompleted();
+                ExecuteUpgrade();
+            }
+        }
+    }
+    private void UpgradeCompleted()
+    {
+        GoldManager.Instance.RemoveGold(UpgradeCost);
+        UpgradeCost *= upgradeCostMultiplier;
+        CurrentLevel++;
+    }
+    protected virtual void ExecuteUpgrade()
+    {
+
     }
 }

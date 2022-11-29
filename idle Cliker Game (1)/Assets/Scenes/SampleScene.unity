@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c60efe5cfbb574388cf831a3922776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testGold: 1000
+  testGold: 5000
 --- !u!1 &27504041
 GameObject:
   m_ObjectHideFlags: 0
@@ -3264,6 +3264,8 @@ MonoBehaviour:
   panelTitle: {fileID: 4475632876981317243}
   level: {fileID: 1794658298228712041}
   nextBoost: {fileID: 3453891298504766523}
+  upgradeCost: {fileID: 4475632877089038579}
+  progressBar: {fileID: 8676999915229423589}
   stat1Title: {fileID: 2254293354639930460}
   stat2Title: {fileID: 1298814397}
   stat3Title: {fileID: 1215760508}
@@ -5525,7 +5527,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4475632877578051461}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1312585627}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &4475632877578051483
 RectTransform:
   m_ObjectHideFlags: 0

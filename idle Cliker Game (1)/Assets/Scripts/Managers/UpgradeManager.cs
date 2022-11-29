@@ -11,6 +11,10 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI level;
     [SerializeField] private TextMeshProUGUI nextBoost;
 
+    [SerializeField] private TextMeshProUGUI upgradeCost;
+    [SerializeField] private Image progressBar;
+
+
     [Header("Stat Title")]
     [SerializeField] private TextMeshProUGUI stat1Title;
     [SerializeField] private TextMeshProUGUI stat2Title;
@@ -62,15 +66,27 @@ public class UpgradeManager : MonoBehaviour
         
     }
 
+    public void Upgrade()
+    {
+        if(GoldManager.Instance.CurrentGold >= _currentShaftUpgrade.UpgradeCost)
+        {
+            _currentShaftUpgrade.Upgrade(1);
+            UpdateShaftPanelValues();
+        }
+    }
+
     private void UpdateShaftPanelValues()
     {
+        upgradeCost.text = _currentShaftUpgrade.UpgradeCost.ToString();
+        level.text = $"Level {_currentShaftUpgrade.CurrentLevel}";
+
         stat1CurrentValue.text = $"{_currentShaft.Miners.Count}";
         stat2CurrentValue.text = $"{_currentShaft.Miners[0].MoveSpeed}";
         stat3CurrentValue.text = $"{_currentShaft.Miners[0].CollectPerSecond}";
         stat4CurrentValue.text = $"{_currentShaft.Miners[0].CollectCapacity}";
 
         stat1UpgradeValue.text = (_currentShaftUpgrade.CurrentLevel + 1) % 10 == 0 ? " +1 " : " +0 ";
-
+ 
         float minerMoveSpeed = _currentShaft.Miners[0].MoveSpeed;
         float walkSpeedUpgrade = Mathf.Abs(minerMoveSpeed - (minerMoveSpeed * _currentShaftUpgrade.MoveSpeedMultiplier));
         stat2UpgradeValue.text = (_currentShaftUpgrade.CurrentLevel + 1) % 10 == 0 ? $"+{walkSpeedUpgrade}/s" : "+0";

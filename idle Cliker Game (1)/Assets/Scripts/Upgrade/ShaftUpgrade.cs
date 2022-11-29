@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class ShaftUpgrade : BaseUpgrade
 {
-    
-    void Start()
+    protected override void ExecuteUpgrade()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(CurrentLevel % 10 == 0)
+        {
+            _shaft.CreateMiner();
+        }
+        foreach(ShaftMiner miner in _shaft.Miners)
+        {
+            miner.CollectCapacity *= CollectCapacityMultiplier;
+            miner.CollectPerSecond *= CollectPerSecondMultiplier;
+            if(CurrentLevel % 10 == 0)
+            {
+                miner.MoveSpeed *= MoveSpeedMultiplier;
+            }
+        }
     }
 }

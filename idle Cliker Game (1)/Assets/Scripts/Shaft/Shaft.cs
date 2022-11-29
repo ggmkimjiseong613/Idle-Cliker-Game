@@ -30,7 +30,7 @@ public class Shaft : MonoBehaviour
         CreateMiner();
         CreateDeposit();
     }
-    private void CreateMiner()
+    public void CreateMiner()
     {
        ShaftMiner newMiner = Instantiate(minerPrefab, depositLocation.position, Quaternion.identity);
         newMiner.CurrentShaft = this;
